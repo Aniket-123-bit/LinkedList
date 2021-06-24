@@ -1,17 +1,17 @@
 package com.linkedlist;
 
 public class LinkedListOperations {
+
     //Represent the head and tail of the singly linked list
     INode head;
     INode tail;
     int size;
 
     public void addNodeInBeginnig(Node newNode) {
-        if(head == null) {
+        if (head == null) {
             head = newNode;
             tail = newNode;
-        }
-        else {
+        } else {
             INode temp = head;
             head = newNode;
             head.setNext(temp);
@@ -22,8 +22,7 @@ public class LinkedListOperations {
         if (head == null) {
             head = newNode;
             tail = newNode;
-        }
-        else {
+        } else {
             tail.setNext(newNode);
             tail = newNode;
         }
@@ -32,16 +31,15 @@ public class LinkedListOperations {
 
     public void addNodeInMiddle(Node newNode) {
 
-        if(head == null) {
+        if (head == null) {
             head = newNode;
             tail = newNode;
-        }
-        else {
-            INode temp, current;
-            int count = (size % 2 == 0) ? (size/2) : ((size + 1) / 2);
+        } else {
+            INode temp, current = null;
+            int count = (size % 2 == 0) ? (size / 2) : ((size + 1) / 2);
             temp = head;
-            current = null;
-            for(int i=0; i<count; i++) {
+            //current = null;
+            for (int i = 0; i < count; i++) {
                 current = temp;
                 temp = temp.getNext();
             }
@@ -52,23 +50,36 @@ public class LinkedListOperations {
     }
 
     public void deleteNodeFromBeginning() {
-        if(head == null)
+        if (head == null)
             System.out.println("Linked List is empty!");
         else
             head = head.getNext();
+
+        size--;
+    }
+
+    public void deleteNodeFromLast() {
+        if (head == null)
+            System.out.println("Linked List is empty!");
+        else {
+            INode current = head;
+            while (tail.getNext() != null)
+                current = current.getNext();
+            current.setNext(null);
+        }
+        size--;
     }
 
     public void displayNode() {
         INode current = head;
-        if(head == null)
+        if (head == null)
             System.out.println("Linked List is empty");
-        System.out.print("Nodes are: " );
+        System.out.print("Nodes are: ");
         while (current != null) {
-            if(current.getNext() != null) {
+            if (current.getNext() != null) {
                 System.out.print(current.getKey() + " -> ");
                 current = current.getNext();
-            }
-            else {
+            } else {
                 System.out.println(current.getKey());
                 current = current.getNext();
             }
