@@ -1,3 +1,9 @@
+/**
+ * Ability to delete the first element in the LinkedList of sequence 56->30->70
+ * Write pop method. Note there is new head
+ * Final Sequence: 30->70
+ *
+ */
 package com.linkedlist;
 
 public class LinkedList {
@@ -8,10 +14,14 @@ public class LinkedList {
         Node<Integer> mySecondNode = new Node<>(30);
         Node<Integer> myThirdNode = new Node<>(70);
 
-        operations.addNode(myFirstNode);
-        operations.addNode(myThirdNode);
+        operations.addNodeInBeginnig(myFirstNode);
+        operations.addNodeAtEnd(myThirdNode);
         operations.addNodeInMiddle(mySecondNode);
 
+
+
+        operations.displayNode();
+        operations.deleteNodeFromBeginning();
         operations.displayNode();
 
     }
