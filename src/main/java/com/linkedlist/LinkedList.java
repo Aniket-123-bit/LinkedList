@@ -8,14 +8,11 @@ public class LinkedList {
         Node<Integer> mySecondNode = new Node<>(30);
         Node<Integer> myThirdNode = new Node<>(70);
 
-         operations.addNode(myFirstNode);
-
-         operations.addNode(mySecondNode);
-
-         operations.addNode(myThirdNode);
+        operations.addNode(myFirstNode);
+        operations.addNode(myThirdNode);
+        operations.addNodeInMiddle(mySecondNode);
 
         operations.displayNode();
 
     }
 }
-
