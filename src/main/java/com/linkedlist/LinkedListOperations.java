@@ -8,10 +8,11 @@ public class LinkedListOperations {
     int size;
 
     public void addNodeInBeginnig(Node newNode) {
-        if (head == null) {
+        if(head == null) {
             head = newNode;
             tail = newNode;
-        } else {
+        }
+        else {
             INode temp = head;
             head = newNode;
             head.setNext(temp);
@@ -22,7 +23,8 @@ public class LinkedListOperations {
         if (head == null) {
             head = newNode;
             tail = newNode;
-        } else {
+        }
+        else {
             tail.setNext(newNode);
             tail = newNode;
         }
@@ -31,15 +33,16 @@ public class LinkedListOperations {
 
     public void addNodeInMiddle(Node newNode) {
 
-        if (head == null) {
+        if(head == null) {
             head = newNode;
             tail = newNode;
-        } else {
+        }
+        else {
             INode temp, current = null;
-            int count = (size % 2 == 0) ? (size / 2) : ((size + 1) / 2);
+            int count = (size % 2 == 0) ? (size/2) : ((size + 1) / 2);
             temp = head;
             //current = null;
-            for (int i = 0; i < count; i++) {
+            for(int i=0; i<count; i++) {
                 current = temp;
                 temp = temp.getNext();
             }
@@ -50,7 +53,7 @@ public class LinkedListOperations {
     }
 
     public void deleteNodeFromBeginning() {
-        if (head == null)
+        if(head == null)
             System.out.println("Linked List is empty!");
         else
             head = head.getNext();
@@ -59,27 +62,44 @@ public class LinkedListOperations {
     }
 
     public void deleteNodeFromLast() {
-        if (head == null)
+        if(head == null)
             System.out.println("Linked List is empty!");
         else {
             INode current = head;
-            while (tail.getNext() != null)
+            while(tail.getNext() != null)
                 current = current.getNext();
             current.setNext(null);
         }
         size--;
     }
 
+    public void searchElement() {
+        if(head == null)
+            System.out.println("Linked List is empty");
+        else{
+            INode currentNode = head;
+            int position = 0;
+            while (currentNode != null){
+                position++;
+                if(currentNode.getKey().equals(30)){
+                    System.out.println("Key value 30 is present at position "+position+" in list");
+                }
+                currentNode = currentNode.getNext();
+            }
+        }
+    }
+
     public void displayNode() {
         INode current = head;
-        if (head == null)
+        if(head == null)
             System.out.println("Linked List is empty");
-        System.out.print("Nodes are: ");
+        System.out.print("Nodes are: " );
         while (current != null) {
-            if (current.getNext() != null) {
+            if(current.getNext() != null) {
                 System.out.print(current.getKey() + " -> ");
                 current = current.getNext();
-            } else {
+            }
+            else {
                 System.out.println(current.getKey());
                 current = current.getNext();
             }

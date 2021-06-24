@@ -1,8 +1,5 @@
 /**
- * Ability to delete the last element in the LinkedList of sequence 56->30->70
- * Write popLast method. Note there is new tail
- * Final Sequence: 56->30
- *
+ * Ability to search LinkedList to find Node with value 30
  */
 package com.linkedlist;
 import java.util.Scanner;
@@ -44,6 +41,10 @@ public class LinkedList {
                     flag = true;
                     break;
                 case 7:
+                    operations.searchElement();
+                    flag = true;
+                    break;
+                case 8:
                     flag = false;
                     break;
             }
@@ -59,11 +60,11 @@ public class LinkedList {
         System.out.println("Press 4 to Delete Node from the Beginning");
         System.out.println("Press 5 to Delete Node from the End");
         System.out.println("Press 6 to Display the Linked List");
-        System.out.println("Press 7 to Quit");
+        System.out.println("Press 7 to Search Node in the Linked List");
+        System.out.println("Press 8 to Quit");
 
         int value = input.nextInt();
 
         return value;
     }
 }
-
